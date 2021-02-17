@@ -5,6 +5,10 @@
   "repository": "https://github.com/vinay-neosoft/version-test.git",
   "author": "vinay b <vinay.bhawsar@neosofttech.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "git-branch-is -r \"^sprint/[0-9]+\" && npm --no-git-tag-version version patch"
+  },
   "husky": {
     "hooks": {
       "post-merge": "git-branch-is master && npm version major || git-branch-is staging && npm version minor || git-branch-is -r sprint && npm --no-git-tag-version version patch"
