@@ -4,5 +4,13 @@
   "main": "index.js",
   "repository": "https://github.com/vinay-neosoft/version-test.git",
   "author": "vinay b <vinay.bhawsar@neosofttech.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "post-merge": "git-branch-is master && npm version major || git-branch-is staging && npm version minor || git-branch-is -r sprint && npm --no-git-tag-version version patch"
+    }
+  },
+  "dependencies": {
+    "husky": "^5.0.9"
+  }
 }
